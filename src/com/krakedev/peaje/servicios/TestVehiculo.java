@@ -32,7 +32,7 @@ public class TestVehiculo {
         //probar métodos de negocio
         EstacionPeaje estacion = new EstacionPeaje();
         
-        Vehiculo v2 = estacion.registrarVehiculo("XYZ-9999", "L", conductor, "TAG-002");
+        Vehiculo v2 = estacion.registrarVehiculo("XYZ-9999", "P", conductor, "TAG-002");
         ImpresorUtil.imprimirVehiculo(v2);
 
         estacion.recargarTag(10.0, v2.getTag());
@@ -40,6 +40,15 @@ public class TestVehiculo {
 
         estacion.cobrarPeaje(v2);
         System.out.println("Saldo tras peaje: " + v2.getTag().getSaldo());
+        
+        Vehiculo v3 = estacion.registrarVehiculo("AAA-9999", "L", conductor, "TAG-003");
+        ImpresorUtil.imprimirVehiculo(v3);
+
+        estacion.recargarTag(10.0, v3.getTag());
+        System.out.println("Saldo tras recarga: " + v3.getTag().getSaldo());
+
+        estacion.cobrarPeaje(v3);
+        System.out.println("Saldo tras peaje: " + v3.getTag().getSaldo());
 
 	}
 
